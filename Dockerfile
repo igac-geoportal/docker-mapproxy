@@ -1,16 +1,14 @@
 FROM python:3.5
-MAINTAINER Arne Schubert<atd.schubert@gmail.com>
+LABEL maintainer="Arne Schubert<atd.schubert@gmail.com>"
+LABEL maintainer="Juan Méndez<juan@gkudos.com>"
 
-ENV MAPPROXY_VERSION 1.11.0
 ENV MAPPROXY_PROCESSES 4
 ENV MAPPROXY_THREADS 2
 
 RUN set -x \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-    python-imaging \
     python-yaml \
-    libproj12 \
     libgeos-dev \
     python-lxml \
     libgdal-dev \
@@ -25,10 +23,11 @@ RUN set -x \
   && mkdir -p /mapproxy \
   && chown mapproxy /mapproxy \
   && pip install --upgrade pip \
-  && pip install Shapely Pillow requests geojson uwsgi MapProxy==$MAPPROXY_VERSION  \
+  && pip install Shapely Pillow requests geojson uwsgi git+https://github.com/mapproxy/mapproxy.git  \
   && mkdir -p /docker-entrypoint-initmapproxy.d
 
 COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["mapproxy"]
 
@@ -37,3 +36,6 @@ VOLUME ["/mapproxy"]
 EXPOSE 8080
 # Stats
 EXPOSE 9191
+
+
+

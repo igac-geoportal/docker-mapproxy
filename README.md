@@ -2,46 +2,40 @@
 
 MapProxy docker image from the [YAGA Development-Team](https://yagajs.org)
 
+- [Mapproxy for Docker](#Mapproxy-for-Docker)
+  - [Supported tags](#Supported-tags)
+  - [What is MapProxy](#What-is-MapProxy)
+  - [Build container](#Build-container)
+  - [Run container](#Run-container)
+    - [Environment variables](#Environment-variables)
+  - [Enhance the image](#Enhance-the-image)
+  - [Contributing](#Contributing)
+  - [License](#License)
+
 ## Supported tags
 
-* `1.11.0`, `1.11`, `1`, `latest`
-* `1.11.0-alpine`, `1.11-alpine`, `1-alpine`, `alpine`
-* `1.10.4`, `1.10`
-* `1.10.4-alpine`, `1.10-alpine`
-* `1.10.3`
-* `1.10.3-alpine`
-* `1.10.2`
-* `1.10.2-alpine`
-* `1.10.1`
-* `1.10.1-alpine`
-* `1.10.0`
-* `1.10.0-alpine`
-* `1.9.1`, `1.9`
-* `1.9.1-alpine`, `1.9-alpine`
-* `1.9.0`
-* `1.9.0-alpine`
-* `1.8.2`, `1.8`
-* `1.8.2-alpine`, `1.8-alpine`
-* `1.8.1`
-* `1.8.1-alpine`
-* `1.8.0`
-* `1.8.0-alpine`
-* `1.7.1`, `1.7`
-* `1.7.1-alpine`, `1.7-alpine`
-* `1.7.0`
-* `1.7.0-alpine`
+* `1.12.0a`, `latest`
 
 ## What is MapProxy
 
 [MapProxy](https://mapproxy.org/) is an open source proxy for geospatial data. It caches, accelerates and transforms
 data from existing map services and serves any desktop or web GIS client.
 
+## Build container
+
+```bash
+docker build -t igac/mapproxy .
+docker images igac/mapproxy
+docker tag xxxxx igac/mapproxy:1.12.0a
+docker push igac/mapproxy:1.12.0a
+```
+
 ## Run container
 
 You can run the container with a command like this:
 
 ```bash
-docker run -v /path/to/mapproxy:/mapproxy -p 8080:8080 yagajs/mapproxy
+docker run -v /path/to/mapproxy:/mapproxy -p 8080:8080 igac/mapproxy:1.12.0a
 ```
 
 *It is optional, but recommended to add a volume. Within the volume mapproxy get the configuration, or create one
@@ -51,7 +45,7 @@ The container normally runs in [http-socket-mode](http://uwsgi-docs.readthedocs.
 run the image behind a HTTP-Proxy, like [Nginx](http://nginx.org/), you can run it in direct http-mode by running:
 
 ```bash
-docker run -v /path/to/mapproxy:/mapproxy -p 8080:8080 yagajs/mapproxy mapproxy http
+docker run -v /path/to/mapproxy:/mapproxy -p 8080:8080 igac/mapproxy:1.12.0a mapproxy http
 ```
 
 ### Environment variables
