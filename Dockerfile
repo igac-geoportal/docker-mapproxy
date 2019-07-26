@@ -1,4 +1,4 @@
-FROM python:3.7.4
+FROM python:3.7.4-buster
 LABEL maintainer="Arne Schubert<atd.schubert@gmail.com>"
 LABEL maintainer="Juan Méndez<juan@gkudos.com>"
 
