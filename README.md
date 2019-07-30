@@ -14,7 +14,7 @@ MapProxy docker image from the [YAGA Development-Team](https://yagajs.org)
 
 ## Supported tags
 
-* `1.12.0a`, `latest`
+* `1.12.0a`
 
 ## What is MapProxy
 
