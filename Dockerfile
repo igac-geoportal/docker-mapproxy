@@ -23,7 +23,7 @@ RUN set -x \
   && mkdir -p /mapproxy \
   && chown mapproxy /mapproxy \
   && pip install --upgrade pip \
-  && pip install Shapely Pillow requests geojson uwsgi git+https://github.com/mapproxy/mapproxy.git  \
+  && pip install Shapely Pillow requests geojson uwsgi git+https://github.com/mapproxy/mapproxy.git@1.12.0  \
   && mkdir -p /docker-entrypoint-initmapproxy.d
 
 COPY docker-entrypoint.sh /

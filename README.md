@@ -2,19 +2,19 @@
 
 MapProxy docker image from the [YAGA Development-Team](https://yagajs.org)
 
-- [Mapproxy for Docker](#Mapproxy-for-Docker)
-  - [Supported tags](#Supported-tags)
-  - [What is MapProxy](#What-is-MapProxy)
-  - [Build container](#Build-container)
-  - [Run container](#Run-container)
-    - [Environment variables](#Environment-variables)
-  - [Enhance the image](#Enhance-the-image)
-  - [Contributing](#Contributing)
-  - [License](#License)
+- [Mapproxy for Docker](#mapproxy-for-docker)
+  - [Supported tags](#supported-tags)
+  - [What is MapProxy](#what-is-mapproxy)
+  - [Build container](#build-container)
+  - [Run container](#run-container)
+    - [Environment variables](#environment-variables)
+  - [Enhance the image](#enhance-the-image)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Supported tags
 
-* `1.12.0a`
+* `1.12.0a`, `1.12.0`, `latest`
 
 ## What is MapProxy
 
@@ -26,8 +26,8 @@ data from existing map services and serves any desktop or web GIS client.
 ```bash
 docker build -t igac/mapproxy .
 docker images igac/mapproxy
-docker tag xxxxx igac/mapproxy:1.12.0a
-docker push igac/mapproxy:1.12.0a
+docker tag xxxxx igac/mapproxy:1.12.0
+docker push igac/mapproxy:1.12.0
 ```
 
 ## Run container
